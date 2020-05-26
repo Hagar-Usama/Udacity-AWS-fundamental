@@ -69,3 +69,25 @@ Arbitrary variable names in general functions can actually make the code more re
 
 > **Tip: Try to use fewer than three arguments per function** <br>
 Try to use no more than three arguments when possible. This is not a hard rule and there are times it is more appropriate to use many parameters. But in many cases, it's more effective to use fewer arguments. Remember we are modularizing to simplify our code and make it more efficient to work with. If your function has a lot of parameters, you may want to rethink how you are splitting this up.
+
+---
+
+#### 2.9
+#### Efficient Code
+Knowing how to write code that runs efficiently is another essential skill in software development. Optimizing code to be more efficient can mean making it:
+
+* Execute faster
+* Take up less space in memory/storage
+
+The project you're working on would determine which of these is more important to optimize for your company or product. When we are performing lots of different transformations on large amounts of data, this can make orders of magnitudes of difference in performance.
+
+---
+
+### 2.15 Documentation
+
+* **DOCUMENTATION**: additional text or illustrated information that comes with or is embedded in the code of software.
+* Helpful for clarifying complex parts of code, making your code easier to navigate, and quickly conveying how and why different components of your program are used.
+* Several types of documentation can be added at different levels of your program:
+  * **In-line Comments** - line level
+Docstrings - module and function level
+  * **Project Documentation** - project level

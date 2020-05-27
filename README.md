@@ -4,7 +4,9 @@
 ## Contents:
 
 
+
 ---
+
 
 ## [2] Software Engineering Practices
 
@@ -83,7 +85,7 @@ The project you're working on would determine which of these is more important t
 
 ---
 
-### 2.15 Documentation
+#### 2.15 Documentation
 
 * **DOCUMENTATION**: additional text or illustrated information that comes with or is embedded in the code of software.
 * Helpful for clarifying complex parts of code, making your code easier to navigate, and quickly conveying how and why different components of your program are used.
@@ -91,3 +93,242 @@ The project you're working on would determine which of these is more important t
   * **In-line Comments** - line level
 Docstrings - module and function level
   * **Project Documentation** - project level
+
+#### 2.16
+**In-line Comments**
+
+
+  * In-line comments are text following hash symbols throughout your code. They are used to explain parts of your code, and really help future contributors understand your work.
+
+  * One way comments are used is to document the major steps of complex code to help readers follow. Then, you may not have to understand the code to follow what it does. However, others would argue that this is using comments to justify bad code, and that if code requires comments to follow, it is a sign refactoring is needed.
+
+  * Comments are valuable for explaining where code cannot. For example, the history behind why a certain method was implemented a specific way. Sometimes an unconventional or seemingly arbitrary approach may be applied because of some obscure external variable causing side effects. These things are difficult to explain with code.
+
+
+#### 2.17 Docstrings
+
+Docstring, or documentation strings, are valuable pieces of documentation that explain the functionality of any function or module in your code. Ideally, each of your functions should always have a docstring.
+
+Docstrings are surrounded by triple quotes. The first line of the docstring is a brief explanation of the function's purpose.
+
+##### One line docstring
+```python
+def population_density(population, land_area):
+    """Calculate the population density of an area."""
+    return population / land_area
+```
+If you think that the function is complicated enough to warrant a longer description, you can add a more thorough paragraph after the one line summary.
+
+##### Multi line docstring
+
+```python
+def population_density(population, land_area):
+    """Calculate the population density of an area.
+
+    Args:
+    population: int. The population of the area
+    land_area: int or float. This function is unit-agnostic, if you pass in values in terms of square km or square miles the function will return a density in those units.
+
+    Returns:
+    population_density: population/land_area. The population density of a
+    particular area.
+    """
+    return population / land_area
+
+```
+The next element of a docstring is an explanation of the function's arguments. Here you list the arguments, state their purpose, and state what types the arguments should be. Finally it is common to provide some description of the output of the function. Every piece of the docstring is optional; however, doc strings are a part of good coding practice.
+
+##### Resources:
+* [PEP 257 - Docstring Conventions][2]
+* [NumPy Docstring Guide][3]
+
+[2]: https://www.python.org/dev/peps/pep-0257/
+[3]: https://numpydoc.readthedocs.io/en/latest/format.html
+
+
+#### 2.18 Project Documentation
+
+Project documentation is essential for getting others to understand why and how your code is relevant to them, whether they are potentials users of your project or developers who may contribute to your code. A great first step in project documentation is your README file. It will often be the first interaction most users will have with your project.
+
+Whether it's an application or a package, your project should absolutely come with a README file. **At a minimum**,
+* this should explain what it does,
+* list its dependencies, and
+* provide sufficiently detailed instructions on how to use it.
+
+You want to make it **as simple as possible** for others to understand the purpose of your project, and quickly get something working.
+
+Translating all your ideas and thoughts formally on paper can be a little difficult, but you'll get better over time and makes a significant difference in helping others realize the value of your project. Writing this documentation can also help you improve the design of your code, as you're forced to think through your design decisions more thoroughly. This also allows future contributors to know how to follow your original intentions.
+
+> A full Udacity course on this topic can be found [here][4].
+
+[4]: https://classroom.udacity.com/courses/ud777
+
+Here are a few READMEs from some popular projects:
+
+* [Bootstrap][5]
+* [Scikit-learn][6]
+* [Stack Overflow Blog][7]
+
+[5]: https://github.com/twbs/bootstrap
+[6]: https://github.com/scikit-learn/scikit-learn
+[7]: https://github.com/jjrunner/stackoverflow
+
+#### 2.20 Version Control:
+Version Control in Data Science
+
+If you need a refresher on using git for version control, check out the course linked in the extracurriculars. If you're ready, let's see how git is used in real data science scenarios!
+
+#### 2.21
+##### Scenario #1
+
+Let's walk through the git commands that go along with each step in the scenario you just observed in the video above.
+
+**STEP 1**: You have a local version of this repository on your laptop, and to get the latest stable version, you pull from the develop branch.
+>  Switch to the develop branch <br>
+      `git checkout develop`
+
+> Pull latest changes in the develop branch
+    `git pull`
+
+**STEP 2**: When you start working on this demographic feature, you create a new branch for this called demographic, and start working on your code in this branch.
+
+> Create and switch to new branch called demographic from develop branch<br>
+`git checkout -b demographic`
+
+> Work on this new feature and commit as you go<br>
+`git commit -m 'added gender recommendations'
+git commit -m 'added location specific recommendations'
+...`
+
+**STEP 3**: However, in the middle of your work, you need to work on another feature. So you commit your changes on this demographic branch, and switch back to the develop branch.
+
+
+> Commit changes before switching<br>
+`git commit -m 'refactored demographic gender and location recommendations '`
+
+
+> Switch to the develop branch<br>
+  `git checkout develop`
+
+**STEP 4**: From this stable develop branch, you create another branch for a new feature called friend_groups.
+
+> Create and switch to new branch called friend_groups from develop branch<br>
+
+`git checkout -b friend_groups`
+
+
+**STEP 5**: After you finish your work on the friend_groups branch, you commit your changes, switch back to the development branch, merge it back to the develop branch, and push this to the remote repository’s develop branch.
+
+> Commit changes before switching <br>   `git commit -m 'finalized friend_groups recommendations '`
+
+
+> Switch to the develop branch<br>
+`git checkout develop`
+
+
+> Merge friend_groups branch to develop<br>
+`git merge --no-ff friends_groups`
+
+
+> Push to remote repository<br>
+`git push origin develop`
+
+**STEP 6**: Now, you can switch back to the demographic branch to continue your progress on that feature.
+> Switch to the demographic branch<br>
+
+`git checkout demographic`
+
+---
+#### 2.22
+##### Scenario #2
+
+Let's walk through the git commands that go along with each step in the scenario you just observed in the video above.
+
+**Step 1**: You check your commit history, seeing messages of the changes you made and how well it performed.
+
+> View log history<br>
+`git log`
+
+**Step 2**: The model at this commit seemed to score the highest, so you decide to take a look.
+
+> Checkout a commit<br>
+`git checkout bc90f2cbc9dc4e802b46e7a153aa106dc9a88560`
+
+After inspecting your code, you realize what modifications made this perform well, and use those for your model.
+
+
+*Step 3*: Now, you’re pretty confident merging this back into the development branch, and pushing the updated recommendation engine.
+
+> Switch to develop branch<br>
+`git checkout develop`
+
+> Merge friend_groups branch to develop <br>
+`git merge --no-ff friend_groups`
+
+> Push changes to remote repository<br>
+`git push origin develop`
+
+#### 2.23
+##### Scenario #3
+
+Let's walk through the git commands that go along with each step in the scenario you just observed in the video above.
+
+**Step 1**: Andrew commits his changes to the documentation branch, switches to the development branch, and pulls down the latest changes from the cloud on this development branch, including the change I merged previously for the friends group feature.
+
+> Commit changes on documentation branch<br>
+`git commit -m "standardized all docstrings in process.py"`
+
+
+> Switch to develop branch<br>
+`git checkout develop`
+
+> Pull latest changes on develop down <br>`git pull`
+
+**Step 2**: Then, Andrew merges his documentation branch on the develop branch on his local repository, and then pushes his changes up to update the develop branch on the remote repository.
+
+> Merge documentation branch to develop<br>
+`git merge --no-ff documentation`
+
+> Push changes up to remote repository
+`git push origin develop`
+
+**Step 3**: After the team reviewed both of your work, they merge the updates from the development branch to the master branch. Now they push the changes to the master branch on the remote repository. These changes are now in production.
+
+> Merge develop to master<br>
+`git merge --no-ff develop`
+
+
+>Push changes up to remote repository<br>
+`git push origin master`
+
+#### Resources
+
+There's a great article on a successful git branching strategy that you should really read [here][8].<br>
+
+[8]: http://nvie.com/posts/a-successful-git-branching-model/
+
+
+##### Note on Merge Conflicts
+
+For the most part, git makes merging changes between branches really simple. However, there are some cases where git will be confused on how to combine two changes, and asks you for help. This is called a merge conflict.
+
+Mostly commonly, this happens when two branches modify the same file.
+
+For example, in this situation, let’s say I deleted a line that Andrew modified on his branch. Git wouldn’t know whether to delete the line or modify it. Here, you need to tell git which change to take, and some tools even allow you to edit the change manually. If it isn’t straightforward, you may have to consult with the developer of the other branch to handle a merge conflict.
+
+You can learn more about merge conflicts and methods to handle them [here][9].
+
+[9]: https://help.github.com/articles/about-merge-conflicts/
+
+#### 2.24
+##### Model Versioning
+
+In the previous example, you may have noticed that each commit was documented with a score for that model. This is one simple way to help you keep track of model versions. Version control in data science can be tricky, because there are many pieces involved that can be hard to track, such as large amounts of data, model versions, seeds, hyperparameters, etc.
+
+Here are some resources for useful ways and tools for managing versions of models and large data. These are here for you to explore, but are not necessary to know now as you start your journey as a data scientist. On the job, you’ll always be learning new skills, and many of them will be specific to the processes set in your company.
+
+* [How to Version Control Your Production Machine Learning Models][10]
+* [Versioning Data Science][11]
+
+[10]: https://blog.algorithmia.com/how-to-version-control-your-production-machine-learning-models/
+[11]: https://shuaiw.github.io/2017/07/30/versioning-data-science.html

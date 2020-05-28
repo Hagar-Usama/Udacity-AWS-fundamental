@@ -376,3 +376,42 @@ The advantage of unit tests is that they are isolated from the rest of your prog
 You can read about integration testing and how integration tests relate to unit tests [here][15]. That article contains other very useful links as well.
 
 [15]: https://www.fullstackpython.com/integration-testing.html
+
+### 3.5
+#### Unit Testing Tools
+
+To install `pytest`, run `pip install -U pytest` in your terminal. You can see more information on getting started [here][16].
+
+* Create a test file starting with  `test_`
+* Define unit test functions that start with `test_` inside the test file
+* Enter `pytest` into your terminal in the directory of your test file and it will detect these tests for you!
+
+`test_` is the default - if you wish to change this, you can learn how to in this pytest [configuration][17]
+
+In the test output, periods represent successful unit tests and F's represent failed unit tests. Since all you see is what test functions failed, it's wise to have only one assert statement **per test**. Otherwise, you wouldn't know exactly how many tests failed, and which tests failed.
+
+Your tests won't be stopped by failed `assert` statements, but it will stop if you have **syntax errors**.
+
+[16]:https://docs.pytest.org/en/latest/getting-started.html
+[17]:https://docs.pytest.org/en/latest/customize.html
+
+### 3.7
+#### Test Driven Development and Data Science
+
+* **TEST DRIVEN DEVELOPMENT:** writing tests before you write the code that’s being tested. Your test would fail at first, and you’ll know you’ve finished implementing a task when this test passes.
+
+* Tests can check for all the different scenarios and edge cases you can think of, before even starting to write your function. This way, when you do start implementing your function, you can run this test to get immediate feedback on whether it works or not in all the ways you can think of, as you tweak your function.
+
+* When refactoring or adding to your code, tests help you rest assured that the rest of your code didn't break while you were making those changes. Tests also helps ensure that your function behavior is repeatable, regardless of external parameters, such as hardware and time.
+
+Test driven development for data science is relatively new and has a lot of experimentation and breakthroughs appearing, which you can learn more about in the resources below.
+
+* [Data Science TDD][18]
+* [TDD for Data Science][19]
+* [TDD is Essential for Good Data Science Here's Why][20]
+* [Testing Your Code (general python TDD)][21]
+
+[18]:https://www.linkedin.com/pulse/data-science-test-driven-development-sam-savage/
+[19]:http://engineering.pivotal.io/post/test-driven-development-for-data-science/
+[20]:https://medium.com/@karijdempsey/test-driven-development-is-essential-for-good-data-science-heres-why-db7975a03a44
+[21]:http://docs.python-guide.org/en/latest/writing/tests/

@@ -560,6 +560,7 @@ df['first_name'], df['last_name'] = df['name'].str.split(' ', 1).str
 
 [24]:https://www.pylint.org/
 
+---
 ## 4
 ### 4.1
 **Lesson Outline**
@@ -570,6 +571,7 @@ df['first_name'], df['last_name'] = df['name'].str.split(' ', 1).str
   * coding a class
   * magic methods
   * inheritance
+
 
 * Using object-oriented programming to make a Python package
   * making a package
@@ -609,3 +611,73 @@ This lesson uses classroom workspaces that contain all of the files and function
 [27]:http://www.numpy.org/
 [28]:http://scikit-learn.org/stable/modules/svm.html
 [29]:https://github.com/udacity/DSND_Term2/tree/master/lessons/ObjectOrientedProgramming
+
+### 4.2
+#### Objects are defined by characteristics and actions
+
+Here is a reminder of what is a characteristic and what is an action.
+
+characteristics vs actions
+![OOP]([30]  "Objects are defined by their characteristics and their actions
+")
+
+30: https://video.udacity-data.com/topher/2018/July/5b511a90_screen-shot-2018-07-19-at-4.05.25-pm/screen-shot-2018-07-19-at-4.05.25-pm.png
+
+#### Characteristics and Actions in English Grammar
+
+Another way to think about characteristics and actions is in terms of English grammar. A characteristic would be a noun. On the other hand, an action would be a verb.
+
+Let's pick something from the real-world: a dog. A few characteristics could be the dog's weight, color, breed, and height. These are all nouns. What actions would a dog take? A dog can bark, run, bite and eat. These are all verbs.
+
+### 4.3
+#### Object-Oriented Programming (OOP) Vocabulary
+
+* class - a blueprint consisting of methods and attributes
+* object - an instance of a class. It can help to think of objects as something in the real world like a yellow pencil, a small dog, a blue shirt, etc. However, as you'll see later in the lesson, objects can be more abstract.
+* attribute - a descriptor or characteristic. Examples would be color, length, size, etc. These attributes can take on specific values like blue, 3 inches, large, etc.
+* method - an action that a class or object could take
+* OOP - a commonly used abbreviation for object-oriented programming
+* encapsulation - one of the fundamental ideas behind object-oriented programming is called encapsulation: you can combine functions and data all into a single entity. In object-oriented programming, this single entity is called a class. Encapsulation allows you to hide implementation details much like how the scikit-learn package hides the implementation of machine learning algorithms.
+
+In English, you might hear an attribute described as a property, description, feature, quality, trait, or characteristic. All of these are saying the same thing.
+
+Here is a reminder of how a class, object, attributes and methods relate to each other.
+
+![class-object]([31] "A class is a blueprint consisting of attributes and methods.
+")
+
+[31]: https://video.udacity-data.com/topher/2018/July/5b511ad5_screen-shot-2018-07-19-at-4.06.55-pm/screen-shot-2018-07-19-at-4.06.55-pm.png
+
+### 4.4
+#### Function vs Method
+
+In the video [above at 1:44][32], the dialogue mistakenly calls init a function rather than a method. Why is **init** not a function?
+
+A function and a method look very similar. They both use the def keyword. They also have inputs and return outputs. The difference is that a method is **inside** of a class whereas a function is outside of a class.
+
+#### What is self?
+
+If you instantiate two objects, how does Python differentiate between these two objects?
+``` py
+    shirt_one = Shirt('red', 'S', 'short-sleeve', 15)
+    short_two = Shirt('yellow', 'M', 'long-sleeve', 20)
+```
+
+That's where self comes into play. If you call the change_price method on shirt_one, how does Python know to change the price of shirt_one and not of shirt_two?
+
+``` py
+    shirt_one.change_price(12)
+```
+
+Behind the scenes, Python is calling the change_price method:
+``` py
+    def change_price(self, new_price):
+
+        self.price = new_price
+```
+
+`Self` tells Python where to look in the computer's memory for the shirt_one object. And then Python changes the price of the shirt_one object. When you call the `change_price` method, `shirt_one.change_price(12)`, `self` is implicitly passed in.
+
+The word `self` is just a convention. You could actually use any other name as long as you are consistent; however, you should always use self rather than some other word or else you might confuse people.
+
+[32]: https://youtu.be/Y8ZVw1LHI8E

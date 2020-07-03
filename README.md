@@ -828,5 +828,5 @@ class Pants:
             float: the discounted price
         """
         return self.price * (1 - percentage)
-        ```
-        
+
+```
